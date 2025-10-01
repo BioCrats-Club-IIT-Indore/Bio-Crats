@@ -187,43 +187,55 @@
 // };
 
 // export default BiocratAboutPage;
-import React from 'react';
-import { Target, Lightbulb, Users, Award, TrendingUp, Sparkles } from 'lucide-react';
+import React from "react";
+import {
+  Target,
+  Lightbulb,
+  Users,
+  Award,
+  TrendingUp,
+  Sparkles,
+} from "lucide-react";
 
 const BiocratAboutPage = () => {
   const coreValues = [
     {
       title: "Innovation",
-      description: "We encourage creative thinking and the development of novel solutions to challenges in biotechnology.",
-      icon: <Lightbulb className="w-8 h-8" />
+      description:
+        "We encourage creative thinking and the development of novel solutions to challenges in biotechnology.",
+      icon: <Lightbulb className="w-8 h-8" />,
     },
     {
       title: "Collaboration",
-      description: "We believe in the power of teamwork and interdisciplinary collaboration to achieve common goals.",
-      icon: <Users className="w-8 h-8" />
+      description:
+        "We believe in the power of teamwork and interdisciplinary collaboration to achieve common goals.",
+      icon: <Users className="w-8 h-8" />,
     },
     {
       title: "Excellence",
-      description: "We are committed to maintaining high standards in all our activities and projects.",
-      icon: <Award className="w-8 h-8" />
+      description:
+        "We are committed to maintaining high standards in all our activities and projects.",
+      icon: <Award className="w-8 h-8" />,
     },
     {
       title: "Learning",
-      description: "We foster a culture of continuous learning and professional development among our members.",
-      icon: <Target className="w-8 h-8" />
+      description:
+        "We foster a culture of continuous learning and professional development among our members.",
+      icon: <Target className="w-8 h-8" />,
     },
     {
       title: "Impact",
-      description: "We aim to make a positive impact on the biotechnology field and society through our initiatives.",
-      icon: <TrendingUp className="w-8 h-8" />
-    }
+      description:
+        "We aim to make a positive impact on the biotechnology field and society through our initiatives.",
+      icon: <TrendingUp className="w-8 h-8" />,
+    },
   ];
 
   const stats = [
     { number: "500+", label: "Active Members" },
     { number: "50+", label: "Events Hosted" },
     { number: "20+", label: "Industry Partners" },
-    { number: "100+", label: "Projects Completed" }
+    { number: "100+", label: "Projects Completed" },
   ];
 
   return (
@@ -246,15 +258,23 @@ const BiocratAboutPage = () => {
           </h1>
 
           <p className="text-xl sm:text-2xl font-light leading-relaxed max-w-3xl mx-auto mb-8 text-blue-50">
-            A vibrant community dedicated to fostering innovation and collaboration in biotechnology at IIT Indore
+            A vibrant community dedicated to fostering innovation and
+            collaboration in biotechnology at IIT Indore
           </p>
 
           {/* Stats Bar */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
             {stats.map((stat, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-                <div className="text-3xl md:text-4xl font-bold mb-2">{stat.number}</div>
-                <div className="text-sm md:text-base text-blue-100">{stat.label}</div>
+              <div
+                key={index}
+                className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20"
+              >
+                <div className="text-3xl md:text-4xl font-bold mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-sm md:text-base text-blue-100">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -264,7 +284,6 @@ const BiocratAboutPage = () => {
       {/* Main Content */}
       <main className="px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-6xl mx-auto">
-
           {/* History Section */}
           <div className="mb-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -278,17 +297,26 @@ const BiocratAboutPage = () => {
                   Our History
                 </h2>
                 <p className="text-lg text-slate-600 leading-relaxed">
-                  Founded in 2018, Biocrats Club has grown from a small group of enthusiastic students to a thriving hub for biotechnology enthusiasts at IIT Indore. Over the years, we have organized numerous workshops, seminars, and competitions, attracting participants from diverse academic backgrounds.
+                  Founded in 2018, Biocrats Club has grown from a small group of
+                  enthusiastic students to a thriving hub for biotechnology
+                  enthusiasts at IIT Indore. Over the years, we have organized
+                  numerous workshops, seminars, and competitions, attracting
+                  participants from diverse academic backgrounds.
                 </p>
                 <p className="text-lg text-slate-600 leading-relaxed">
-                  Our journey has been marked by a commitment to excellence and a passion for biotechnology, creating lasting impacts in the academic community and beyond.
+                  Our journey has been marked by a commitment to excellence and
+                  a passion for biotechnology, creating lasting impacts in the
+                  academic community and beyond.
                 </p>
               </div>
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
                 <div
                   className="relative w-full h-80 lg:h-96 bg-center bg-cover rounded-2xl shadow-xl transform group-hover:scale-[1.02] transition duration-300"
-                  style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwA-ucNHARD-w3eHuHF4InRTGhQ2Gjt_v5GpEl0pDCa3BWOs1bv1ts6pxYhbF0Kkn3oZhmooYJmkpaFVr1kfdbz-B6yCNl3Bh334CByaVo9ft5PCBE9CiGqtMIAxs4jL47qVxLP0Oz-mmcG59MT0RXw9sdJrUHXC72HC0HogH7C9weN1Vi5YzL69IKGu3ECQBrNZ0GkyoIzpe_cQRxdntcwm5u8HxI_Ta8Mu7WtPzRQZI9HcVCaS-9ExumiuR1vn4c1259AA71uJnV")' }}
+                  style={{
+                    backgroundImage:
+                      'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwA-ucNHARD-w3eHuHF4InRTGhQ2Gjt_v5GpEl0pDCa3BWOs1bv1ts6pxYhbF0Kkn3oZhmooYJmkpaFVr1kfdbz-B6yCNl3Bh334CByaVo9ft5PCBE9CiGqtMIAxs4jL47qVxLP0Oz-mmcG59MT0RXw9sdJrUHXC72HC0HogH7C9weN1Vi5YzL69IKGu3ECQBrNZ0GkyoIzpe_cQRxdntcwm5u8HxI_Ta8Mu7WtPzRQZI9HcVCaS-9ExumiuR1vn4c1259AA71uJnV")',
+                  }}
                 />
               </div>
             </div>
@@ -301,7 +329,10 @@ const BiocratAboutPage = () => {
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
                 <div
                   className="relative w-full h-80 lg:h-96 bg-center bg-cover rounded-2xl shadow-xl transform group-hover:scale-[1.02] transition duration-300"
-                  style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuByaVbab5I8S3S2U4HPtAkmFNnBF9GfqNfhKmBaJcCZVCtvfopUGvXVzNwC-_Lnhvq4ihjfA7Zkdho-ceuxthkLKvGNvpR9KWMD2mDcc1pslnVFi1rC8xSikgW7k0bq3HnyAxvnkPFWMnDM75ugL4vQRhGSd3r6P7TFhT-_hvldq0bhVJhEtq_Jfaxn4rlg1aGMgZdVmBzQowD_kcjt7RM4q2-xR2LDaj0gcBjKVnCMlzzH3ZH0UdQm30i2wE_fyjHQRvCZ3oLabdyy")' }}
+                  style={{
+                    backgroundImage:
+                      'url("https://lh3.googleusercontent.com/aida-public/AB6AXuByaVbab5I8S3S2U4HPtAkmFNnBF9GfqNfhKmBaJcCZVCtvfopUGvXVzNwC-_Lnhvq4ihjfA7Zkdho-ceuxthkLKvGNvpR9KWMD2mDcc1pslnVFi1rC8xSikgW7k0bq3HnyAxvnkPFWMnDM75ugL4vQRhGSd3r6P7TFhT-_hvldq0bhVJhEtq_Jfaxn4rlg1aGMgZdVmBzQowD_kcjt7RM4q2-xR2LDaj0gcBjKVnCMlzzH3ZH0UdQm30i2wE_fyjHQRvCZ3oLabdyy")',
+                  }}
                 />
               </div>
 
@@ -321,7 +352,11 @@ const BiocratAboutPage = () => {
                     Vision
                   </h3>
                   <p className="text-slate-700 leading-relaxed">
-                    To be the leading student-led biotechnology club in India, recognized for our contributions to research, innovation, and education in the field. We aim to create a dynamic environment where students can develop their skills, network with experts, and make a meaningful impact.
+                    To be the leading student-led biotechnology club in India,
+                    recognized for our contributions to research, innovation,
+                    and education in the field. We aim to create a dynamic
+                    environment where students can develop their skills, network
+                    with experts, and make a meaningful impact.
                   </p>
                 </div>
 
@@ -331,7 +366,11 @@ const BiocratAboutPage = () => {
                     Mission
                   </h3>
                   <p className="text-slate-700 leading-relaxed">
-                    To provide a platform for students to explore and engage with biotechnology through workshops, seminars, projects, and competitions. We strive to foster a collaborative and innovative environment, encouraging continuous skill development and meaningful contributions to the field.
+                    To provide a platform for students to explore and engage
+                    with biotechnology through workshops, seminars, projects,
+                    and competitions. We strive to foster a collaborative and
+                    innovative environment, encouraging continuous skill
+                    development and meaningful contributions to the field.
                   </p>
                 </div>
               </div>
@@ -361,8 +400,12 @@ const BiocratAboutPage = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
                     {value.icon}
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                  <p className="text-slate-600 leading-relaxed">{value.description}</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    {value.title}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    {value.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -387,15 +430,20 @@ const BiocratAboutPage = () => {
               </h2>
 
               <p className="text-xl leading-relaxed text-blue-50 mb-8">
-                Biocrats Club stands out due to our focus on hands-on learning and practical application of biotechnology concepts. Our projects and workshops are designed to provide students with real-world experience, preparing them for future careers in the field.
+                Biocrats Club stands out due to our focus on hands-on learning
+                and practical application of biotechnology concepts. Our
+                projects and workshops are designed to provide students with
+                real-world experience, preparing them for future careers in the
+                field.
               </p>
 
               <p className="text-xl leading-relaxed text-blue-50">
-                We emphasize networking and collaboration, connecting students with industry professionals and researchers to build lasting relationships and opportunities.
+                We emphasize networking and collaboration, connecting students
+                with industry professionals and researchers to build lasting
+                relationships and opportunities.
               </p>
             </div>
           </div>
-
         </div>
       </main>
     </div>

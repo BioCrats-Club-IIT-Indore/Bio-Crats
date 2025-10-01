@@ -4,7 +4,9 @@ import { Mail, Instagram, Linkedin } from "lucide-react";
 export default function ContactUs() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center py-10 px-4">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">Contact Us – BioCrats Club</h1>
+      <h1 className="text-3xl font-bold mb-6 text-gray-800">
+        Contact Us – BioCrats Club
+      </h1>
 
       {/* Links Section */}
       <div className="grid gap-6 md:grid-cols-3 w-full max-w-4xl">
@@ -39,15 +41,25 @@ export default function ContactUs() {
 
       {/* Club Head Section */}
       <div className="mt-10 w-full max-w-2xl bg-white rounded-2xl shadow-md p-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Club Head Contact</h2>
-        <p><strong>Name:</strong> Anjali </p>
-        <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
-        <p><strong>Email:</strong> clubhead.biocrats@iiti.ac.in</p>
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">
+          Club Head Contact
+        </h2>
+        <p>
+          <strong>Name:</strong> Anjali{" "}
+        </p>
+        <p>
+          <strong>Phone:</strong> +91-XXXXXXXXXX
+        </p>
+        <p>
+          <strong>Email:</strong> clubhead.biocrats@iiti.ac.in
+        </p>
       </div>
 
       {/* Map Section */}
       <div className="mt-10 w-full max-w-4xl">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Find Us Here</h2>
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">
+          Find Us Here
+        </h2>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.0189275480554!2d75.91927947523692!3d22.520374579543036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd6b12dc0c03%3A0xeda990eae13b62d!2sIndian%20Institute%20of%20Technology%20Indore!5e0!3m2!1sen!2sin!4v1696164699271!5m2!1sen!2sin"
           width="100%"

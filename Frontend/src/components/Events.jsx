@@ -1,4 +1,3 @@
-
 // import React, { useState } from 'react';
 // import { Search, ArrowRight } from 'lucide-react';
 
@@ -194,11 +193,23 @@
 // };
 
 // export default BiocatsEventsPage;
-import React, { useState } from 'react';
-import { Calendar, MapPin, Users, Clock, ArrowRight, Filter } from 'lucide-react';
+import React, { useState } from "react";
+import {
+  Calendar,
+  MapPin,
+  Users,
+  Clock,
+  ArrowRight,
+  Filter,
+} from "lucide-react";
 
 const BiocratIcon = () => (
-  <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10">
+  <svg
+    fill="none"
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-10 h-10"
+  >
     <path
       clipRule="evenodd"
       d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
@@ -209,7 +220,7 @@ const BiocratIcon = () => (
 );
 
 const EventCard = ({ event }) => {
-  const isPastEvent = event.status === 'Past Event';
+  const isPastEvent = event.status === "Past Event";
 
   return (
     <div className="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
@@ -220,11 +231,13 @@ const EventCard = ({ event }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         <div className="absolute top-4 right-4">
-          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-            isPastEvent
-              ? 'bg-slate-600 text-white'
-              : 'bg-green-500 text-white'
-          }`}>
+          <span
+            className={`px-3 py-1 rounded-full text-xs font-semibold ${
+              isPastEvent
+                ? "bg-slate-600 text-white"
+                : "bg-green-500 text-white"
+            }`}
+          >
             {event.status}
           </span>
         </div>
@@ -265,11 +278,11 @@ const EventCard = ({ event }) => {
         <button
           className={`w-full flex items-center justify-center gap-2 rounded-md h-11 px-4 text-sm font-semibold transition-all duration-300 ${
             isPastEvent
-              ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-              : 'bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg'
+              ? "bg-slate-100 text-slate-700 hover:bg-slate-200"
+              : "bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg"
           }`}
         >
-          <span>{isPastEvent ? 'View Details' : 'Register Now'}</span>
+          <span>{isPastEvent ? "View Details" : "Register Now"}</span>
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>
@@ -278,98 +291,112 @@ const EventCard = ({ event }) => {
 };
 
 const BiocatsEventsPage = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   const events = [
     {
       id: 1,
-      status: 'Upcoming',
-      title: 'Biotech Innovation Challenge',
-      description: 'A competition focused on innovative solutions in biotechnology. Present your ideas to a panel of experts and compete for exciting prizes.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDDR_fYLKFYjh3TbdiIjx22y94Tu1hvnf--ZacmrvDdLJEZTsbbyHDaQktYvq0B5nfLBsUEtloo5_Ed5-OANLyLw4isYGBHXfe9YGgP0bRFEtfc7ZFR89RmMUzCBzAKcQ_W-E98zPrb0H0zGe9BgvYtNrjqqOZq-Hzy6Ma0g7eyeC7M0rEuJztUWSXST0hrjnuABtRMx_3iEz9AnrwkkARQBImXzDtm3-LGkbcfv6SGu0sJTvugyY7MrYXVQ0knrVUSwtvGdDG1idKS',
-      date: 'November 15, 2025',
-      location: 'Main Auditorium, IIT Indore',
-      participants: '150+ participants expected',
-      category: 'competition'
+      status: "Upcoming",
+      title: "Biotech Innovation Challenge",
+      description:
+        "A competition focused on innovative solutions in biotechnology. Present your ideas to a panel of experts and compete for exciting prizes.",
+      image:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDDR_fYLKFYjh3TbdiIjx22y94Tu1hvnf--ZacmrvDdLJEZTsbbyHDaQktYvq0B5nfLBsUEtloo5_Ed5-OANLyLw4isYGBHXfe9YGgP0bRFEtfc7ZFR89RmMUzCBzAKcQ_W-E98zPrb0H0zGe9BgvYtNrjqqOZq-Hzy6Ma0g7eyeC7M0rEuJztUWSXST0hrjnuABtRMx_3iEz9AnrwkkARQBImXzDtm3-LGkbcfv6SGu0sJTvugyY7MrYXVQ0knrVUSwtvGdDG1idKS",
+      date: "November 15, 2025",
+      location: "Main Auditorium, IIT Indore",
+      participants: "150+ participants expected",
+      category: "competition",
     },
     {
       id: 2,
-      status: 'Past Event',
-      title: 'Genomics Workshop',
-      description: 'A comprehensive hands-on workshop covering the fundamentals of genomics and its applications in modern research and healthcare.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC-wfgrWgtlgeDprwEfcqAcvwdAyo8zz4aIA1-rC9hgO-A5kMpJ1IEosk9MYrdKWxp0VWIwDzphMfOTg9uE8VxyMcxOJ7kG71DFhA-vkpghFORSj6W67BwqM702JsUqJZ8qEJyu9FfuxHo9KJY4Jj-3-459sa6oD8Gd9U2m-nhmGxGS3hFj_sUBsrECjACns4kTQJjvfNrxRJ94s9DTfjs7lQsLSs-VmUW7e4pW6Qb_Ee_dMEpXTFTLRZqhGCYxanMqlYh1W8_wK8zi',
-      date: 'September 20, 2025',
-      location: 'Biology Lab Complex',
-      participants: '80 participants attended',
-      category: 'workshop'
+      status: "Past Event",
+      title: "Genomics Workshop",
+      description:
+        "A comprehensive hands-on workshop covering the fundamentals of genomics and its applications in modern research and healthcare.",
+      image:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuC-wfgrWgtlgeDprwEfcqAcvwdAyo8zz4aIA1-rC9hgO-A5kMpJ1IEosk9MYrdKWxp0VWIwDzphMfOTg9uE8VxyMcxOJ7kG71DFhA-vkpghFORSj6W67BwqM702JsUqJZ8qEJyu9FfuxHo9KJY4Jj-3-459sa6oD8Gd9U2m-nhmGxGS3hFj_sUBsrECjACns4kTQJjvfNrxRJ94s9DTfjs7lQsLSs-VmUW7e4pW6Qb_Ee_dMEpXTFTLRZqhGCYxanMqlYh1W8_wK8zi",
+      date: "September 20, 2025",
+      location: "Biology Lab Complex",
+      participants: "80 participants attended",
+      category: "workshop",
     },
     {
       id: 3,
-      status: 'Past Event',
-      title: 'Bioinformatics Symposium',
-      description: 'A symposium featuring talks from leading researchers in bioinformatics, discussing the latest advancements and future directions.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAJaDctduvk6ms3-TOzd_olJm_j3rnWJo6GcGQ_vh-TPA-KPnadjy6hOuMShU4gz3v5apc0DoihX8Cb4Dr85cVe5G3wBERUq6awRRgIKzK91EI-NThnMOxknI79DjyuVEJcSjIYsGqmiHjtQi2EzuONADJBHbKROF8sbdNpynnBNgaACE20hi8-j4OIjhE1Fesk4o6Sfjyz4fGhyWSzfFYm_C75Cx6FiAhpEACyFRJ-Wvk5QtmQytbqcmn3Nh2vehOH0vXzupCflVlg',
-      date: 'August 12, 2025',
-      location: 'Conference Hall',
-      participants: '200+ attendees',
-      category: 'symposium'
+      status: "Past Event",
+      title: "Bioinformatics Symposium",
+      description:
+        "A symposium featuring talks from leading researchers in bioinformatics, discussing the latest advancements and future directions.",
+      image:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAJaDctduvk6ms3-TOzd_olJm_j3rnWJo6GcGQ_vh-TPA-KPnadjy6hOuMShU4gz3v5apc0DoihX8Cb4Dr85cVe5G3wBERUq6awRRgIKzK91EI-NThnMOxknI79DjyuVEJcSjIYsGqmiHjtQi2EzuONADJBHbKROF8sbdNpynnBNgaACE20hi8-j4OIjhE1Fesk4o6Sfjyz4fGhyWSzfFYm_C75Cx6FiAhpEACyFRJ-Wvk5QtmQytbqcmn3Nh2vehOH0vXzupCflVlg",
+      date: "August 12, 2025",
+      location: "Conference Hall",
+      participants: "200+ attendees",
+      category: "symposium",
     },
     {
       id: 4,
-      status: 'Past Event',
-      title: 'Synthetic Biology Hackathon',
-      description: 'A 48-hour hackathon focused on synthetic biology, where participants worked on innovative projects involving genetic engineering.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDxizQm3SKZsed6EMrnu-vDKpniteumdDGiUCQ4b7lKzKYQ_feRrmu6M-uGu044TrrmmuXzeDS1jUMO1c1h7UCimJaR0vQfN-B3zE5_8fkYtOTU5vyQnASAtpUdNeJT1PMp5SjnrfLH6B_dCVdUduip9urF427J4yMaMoTfb9nga0lWo7obT7qEuV1ZIcTIeOZnfYq_t_rD5HcNcVq_mMaa5eZxv85KXp0sls_zmKLrGDhLGcxm_jREzz8Tili1PPR_bwPsDeLseOq_',
-      date: 'July 5-7, 2025',
-      location: 'Innovation Center',
-      participants: '50 teams participated',
-      category: 'competition'
+      status: "Past Event",
+      title: "Synthetic Biology Hackathon",
+      description:
+        "A 48-hour hackathon focused on synthetic biology, where participants worked on innovative projects involving genetic engineering.",
+      image:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDxizQm3SKZsed6EMrnu-vDKpniteumdDGiUCQ4b7lKzKYQ_feRrmu6M-uGu044TrrmmuXzeDS1jUMO1c1h7UCimJaR0vQfN-B3zE5_8fkYtOTU5vyQnASAtpUdNeJT1PMp5SjnrfLH6B_dCVdUduip9urF427J4yMaMoTfb9nga0lWo7obT7qEuV1ZIcTIeOZnfYq_t_rD5HcNcVq_mMaa5eZxv85KXp0sls_zmKLrGDhLGcxm_jREzz8Tili1PPR_bwPsDeLseOq_",
+      date: "July 5-7, 2025",
+      location: "Innovation Center",
+      participants: "50 teams participated",
+      category: "competition",
     },
     {
       id: 5,
-      status: 'Past Event',
-      title: 'Microbiology Seminar Series',
-      description: 'A series of enlightening seminars covering various topics in microbiology, presented by renowned experts in the field.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAZQZRy2XqPa4K_JDVlShbUaRfDDhHSwkGygo8lfiANJlvimx_uDeYVvxsDvf1VdxChmL6VFmDzZ0Yyme1xS6GYkMgBrK0TM43vKQt2NYCayQRHiuH69u9gP3eybT75f19VMge6my7JF_e7W0JJG_d7AshmA2R5GMRE6vqDDa0mkn05xmnWNKkhf1HxW9Wzfhq2JGrvDV3C4WYRQwzhuRTtGwkSo5WflqUpPBm_bO95nLt00-TqC-Uc1cxDJ8qQmSKyLBvBTTUbY_j',
-      date: 'June 15-17, 2025',
-      location: 'Lecture Hall 1',
-      participants: '120 attendees',
-      category: 'seminar'
+      status: "Past Event",
+      title: "Microbiology Seminar Series",
+      description:
+        "A series of enlightening seminars covering various topics in microbiology, presented by renowned experts in the field.",
+      image:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuCAZQZRy2XqPa4K_JDVlShbUaRfDDhHSwkGygo8lfiANJlvimx_uDeYVvxsDvf1VdxChmL6VFmDzZ0Yyme1xS6GYkMgBrK0TM43vKQt2NYCayQRHiuH69u9gP3eybT75f19VMge6my7JF_e7W0JJG_d7AshmA2R5GMRE6vqDDa0mkn05xmnWNKkhf1HxW9Wzfhq2JGrvDV3C4WYRQwzhuRTtGwkSo5WflqUpPBm_bO95nLt00-TqC-Uc1cxDJ8qQmSKyLBvBTTUbY_j",
+      date: "June 15-17, 2025",
+      location: "Lecture Hall 1",
+      participants: "120 attendees",
+      category: "seminar",
     },
     {
       id: 6,
-      status: 'Past Event',
-      title: 'Biomedical Engineering Workshop',
-      description: 'An intensive workshop exploring the intersection of biology and engineering, focusing on cutting-edge biomedical devices.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB_QTLjp86sMA6xdxDhh8Zzr0yEnhqILXAbZp5OgSLLzbV5ii4H5B2gdRtwARHqi9VRh8aawbSzHZGXa42ncnISI9lDipbUUGVmgbXTJhBuZz-2klGKgry2jbBuHooH3SgneK__L2K4X2JH8s_kd5nTCvux_1W6nJjhZ2LgpD53zzOBwY_DFoteyR3-s5g7uOwfg9MHykPJ07ogo5W_brfMEx7p1CYeDRnSZdEMOQYUp0QLvm-B3WKR1d8otpstiZtDgX2wiHZ8AT1L',
-      date: 'May 22, 2025',
-      location: 'Engineering Block',
-      participants: '65 participants',
-      category: 'workshop'
-    }
+      status: "Past Event",
+      title: "Biomedical Engineering Workshop",
+      description:
+        "An intensive workshop exploring the intersection of biology and engineering, focusing on cutting-edge biomedical devices.",
+      image:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuB_QTLjp86sMA6xdxDhh8Zzr0yEnhqILXAbZp5OgSLLzbV5ii4H5B2gdRtwARHqi9VRh8aawbSzHZGXa42ncnISI9lDipbUUGVmgbXTJhBuZz-2klGKgry2jbBuHooH3SgneK__L2K4X2JH8s_kd5nTCvux_1W6nJjhZ2LgpD53zzOBwY_DFoteyR3-s5g7uOwfg9MHykPJ07ogo5W_brfMEx7p1CYeDRnSZdEMOQYUp0QLvm-B3WKR1d8otpstiZtDgX2wiHZ8AT1L",
+      date: "May 22, 2025",
+      location: "Engineering Block",
+      participants: "65 participants",
+      category: "workshop",
+    },
   ];
 
   const categories = [
-    { id: 'all', label: 'All Categories' },
-    { id: 'workshop', label: 'Workshops' },
-    { id: 'competition', label: 'Competitions' },
-    { id: 'symposium', label: 'Symposiums' },
-    { id: 'seminar', label: 'Seminars' }
+    { id: "all", label: "All Categories" },
+    { id: "workshop", label: "Workshops" },
+    { id: "competition", label: "Competitions" },
+    { id: "symposium", label: "Symposiums" },
+    { id: "seminar", label: "Seminars" },
   ];
 
-  const filteredEvents = events.filter(event => {
-    const matchesStatus = activeFilter === 'all' ||
-      (activeFilter === 'upcoming' && event.status === 'Upcoming') ||
-      (activeFilter === 'past' && event.status === 'Past Event');
+  const filteredEvents = events.filter((event) => {
+    const matchesStatus =
+      activeFilter === "all" ||
+      (activeFilter === "upcoming" && event.status === "Upcoming") ||
+      (activeFilter === "past" && event.status === "Past Event");
 
-    const matchesCategory = selectedCategory === 'all' || event.category === selectedCategory;
+    const matchesCategory =
+      selectedCategory === "all" || event.category === selectedCategory;
 
     return matchesStatus && matchesCategory;
   });
 
-  const upcomingCount = events.filter(e => e.status === 'Upcoming').length;
-  const pastCount = events.filter(e => e.status === 'Past Event').length;
+  const upcomingCount = events.filter((e) => e.status === "Upcoming").length;
+  const pastCount = events.filter((e) => e.status === "Past Event").length;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50">
@@ -387,8 +414,9 @@ const BiocatsEventsPage = () => {
               </h1>
             </div>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Discover and participate in groundbreaking events organized by the Biocrats Club at IIT Indore.
-              From cutting-edge workshops to competitive challenges, we foster innovation in biosciences.
+              Discover and participate in groundbreaking events organized by the
+              Biocrats Club at IIT Indore. From cutting-edge workshops to
+              competitive challenges, we foster innovation in biosciences.
             </p>
           </div>
 
@@ -397,35 +425,37 @@ const BiocatsEventsPage = () => {
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <Filter className="w-5 h-5 text-blue-600" />
-                  <h3 className="text-lg font-bold text-slate-900">Filter Events</h3>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    Filter Events
+                  </h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   <button
-                    onClick={() => setActiveFilter('all')}
+                    onClick={() => setActiveFilter("all")}
                     className={`px-5 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
-                      activeFilter === 'all'
-                        ? 'bg-blue-600 text-white shadow-md'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                      activeFilter === "all"
+                        ? "bg-blue-600 text-white shadow-md"
+                        : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                     }`}
                   >
                     All Events ({events.length})
                   </button>
                   <button
-                    onClick={() => setActiveFilter('upcoming')}
+                    onClick={() => setActiveFilter("upcoming")}
                     className={`px-5 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
-                      activeFilter === 'upcoming'
-                        ? 'bg-blue-600 text-white shadow-md'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                      activeFilter === "upcoming"
+                        ? "bg-blue-600 text-white shadow-md"
+                        : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                     }`}
                   >
                     Upcoming ({upcomingCount})
                   </button>
                   <button
-                    onClick={() => setActiveFilter('past')}
+                    onClick={() => setActiveFilter("past")}
                     className={`px-5 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
-                      activeFilter === 'past'
-                        ? 'bg-blue-600 text-white shadow-md'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                      activeFilter === "past"
+                        ? "bg-blue-600 text-white shadow-md"
+                        : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                     }`}
                   >
                     Past Events ({pastCount})
@@ -443,8 +473,10 @@ const BiocatsEventsPage = () => {
                   onChange={(e) => setSelectedCategory(e.target.value)}
                   className="w-full md:w-48 px-4 py-2 text-sm font-medium border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
                 >
-                  {categories.map(cat => (
-                    <option key={cat.id} value={cat.id}>{cat.label}</option>
+                  {categories.map((cat) => (
+                    <option key={cat.id} value={cat.id}>
+                      {cat.label}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -462,15 +494,21 @@ const BiocatsEventsPage = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 mb-4">
                 <Calendar className="w-8 h-8 text-slate-400" />
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">No events found</h3>
-              <p className="text-slate-500">Try adjusting your filters to see more events.</p>
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                No events found
+              </h3>
+              <p className="text-slate-500">
+                Try adjusting your filters to see more events.
+              </p>
             </div>
           )}
 
           <div className="mt-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Stay Updated</h2>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Don't miss out on upcoming events and opportunities. Join our community to receive notifications about new events and activities.
+              Don't miss out on upcoming events and opportunities. Join our
+              community to receive notifications about new events and
+              activities.
             </p>
             <button className="bg-white text-blue-600 px-8 py-3 rounded-md font-semibold hover:bg-blue-50 transition-colors duration-300 shadow-lg">
               Subscribe to Updates

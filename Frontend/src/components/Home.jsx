@@ -114,44 +114,64 @@
 //   );
 // }
 import React from "react";
-import { ArrowRight, Award, Calendar, Users, Microscope, Lightbulb, TrendingUp } from "lucide-react";
+import {
+  ArrowRight,
+  Award,
+  Calendar,
+  Users,
+  Microscope,
+  Lightbulb,
+  TrendingUp,
+} from "lucide-react";
 
 export default function BiocratsClub() {
   const stats = [
-    { icon: <Users className="w-6 h-6" />, number: "500+", label: "Active Members" },
+    {
+      icon: <Users className="w-6 h-6" />,
+      number: "500+",
+      label: "Active Members",
+    },
     { icon: <Award className="w-6 h-6" />, number: "50+", label: "Awards Won" },
-    { icon: <Calendar className="w-6 h-6" />, number: "100+", label: "Events Hosted" },
-    { icon: <Microscope className="w-6 h-6" />, number: "30+", label: "Research Projects" }
+    {
+      icon: <Calendar className="w-6 h-6" />,
+      number: "100+",
+      label: "Events Hosted",
+    },
+    {
+      icon: <Microscope className="w-6 h-6" />,
+      number: "30+",
+      label: "Research Projects",
+    },
   ];
 
   const highlights = [
     {
       icon: <Lightbulb className="w-8 h-8" />,
       title: "Innovation Hub",
-      description: "Cutting-edge research and development in biotechnology"
+      description: "Cutting-edge research and development in biotechnology",
     },
     {
       icon: <Users className="w-8 h-8" />,
       title: "Expert Network",
-      description: "Connect with industry leaders and academic experts"
+      description: "Connect with industry leaders and academic experts",
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
       title: "Career Growth",
-      description: "Build skills and experience for future opportunities"
-    }
+      description: "Build skills and experience for future opportunities",
+    },
   ];
 
   return (
     <div className="relative flex flex-col min-h-screen overflow-x-hidden bg-slate-50">
-
       {/* Hero Section */}
       <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEeyN8orr60Ahxe60O6CuNSmcyrCRCyZ6a136yoc9-wDCTecW1UixLlvbed6DnwekGsD-KvrQ8P0Hzy8NUkweNE-vaRPW_1O8pWnkvS3E0zbFo4hiAZc_HaTNU6cIoek0k9-LfHMGnXafqWHt7J16Ge8n-mjiUgEmK-1cftmg_zYMaY9vnzsshpPmAD8xK71axNULcIvRKN3HmeflQ5rsLYQm2pnDrtlGLUvFUZ4xylQ0VYiaP8aV7_h8A9RGZW38nRcxR-VglMy57")'
+            backgroundImage:
+              'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEeyN8orr60Ahxe60O6CuNSmcyrCRCyZ6a136yoc9-wDCTecW1UixLlvbed6DnwekGsD-KvrQ8P0Hzy8NUkweNE-vaRPW_1O8pWnkvS3E0zbFo4hiAZc_HaTNU6cIoek0k9-LfHMGnXafqWHt7J16Ge8n-mjiUgEmK-1cftmg_zYMaY9vnzsshpPmAD8xK71axNULcIvRKN3HmeflQ5rsLYQm2pnDrtlGLUvFUZ4xylQ0VYiaP8aV7_h8A9RGZW38nRcxR-VglMy57")',
           }}
         />
 
@@ -176,7 +196,9 @@ export default function BiocratsClub() {
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
-            The Biocrats Club at IIT Indore is dedicated to fostering innovation and collaboration in biotechnology. Join us to explore cutting-edge advancements and contribute to groundbreaking research.
+            The Biocrats Club at IIT Indore is dedicated to fostering innovation
+            and collaboration in biotechnology. Join us to explore cutting-edge
+            advancements and contribute to groundbreaking research.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -236,7 +258,9 @@ export default function BiocratsClub() {
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 text-white rounded-xl flex items-center justify-center mb-4">
                   {highlight.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{highlight.title}</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  {highlight.title}
+                </h3>
                 <p className="text-slate-600">{highlight.description}</p>
               </div>
             ))}
@@ -281,7 +305,9 @@ export default function BiocratsClub() {
                 </h3>
 
                 <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                  Our team secured first place at the prestigious National Biotech Competition, showcasing their innovative research in genetic engineering and sustainable biotechnology solutions.
+                  Our team secured first place at the prestigious National
+                  Biotech Competition, showcasing their innovative research in
+                  genetic engineering and sustainable biotechnology solutions.
                 </p>
 
                 <a
@@ -298,7 +324,10 @@ export default function BiocratsClub() {
       </section>
 
       {/* Upcoming Events */}
-      <section id="events" className="py-20 bg-gradient-to-b from-slate-50 to-white">
+      <section
+        id="events"
+        className="py-20 bg-gradient-to-b from-slate-50 to-white"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider bg-blue-50 px-4 py-2 rounded-full">
@@ -308,7 +337,8 @@ export default function BiocratsClub() {
               Upcoming Events
             </h2>
             <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
-              Join us for exciting workshops, seminars, and networking opportunities
+              Join us for exciting workshops, seminars, and networking
+              opportunities
             </p>
           </div>
 
@@ -334,7 +364,10 @@ export default function BiocratsClub() {
                 </h3>
 
                 <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                  Join us for our annual Biotechnology Symposium, featuring renowned keynote speakers, hands-on workshops, panel discussions, and valuable networking opportunities with industry leaders.
+                  Join us for our annual Biotechnology Symposium, featuring
+                  renowned keynote speakers, hands-on workshops, panel
+                  discussions, and valuable networking opportunities with
+                  industry leaders.
                 </p>
 
                 <a

@@ -21,7 +21,7 @@ const Navbar = () => {
     { name: "Alumni", href: "#alumni" },
     { name: "Gallery", href: "#gallery" },
     { name: "Events", href: "#events" },
-    { name: "Contact Us", href: "#contact" }
+    { name: "Contact Us", href: "#contact" },
   ];
 
   const handleNavClick = (item) => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const BiocratGalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -8,7 +8,7 @@ const BiocratGalleryPage = () => {
     { name: "Events", active: false },
     { name: "Gallery", active: true },
     { name: "Team", active: false },
-    { name: "Contact", active: false }
+    { name: "Contact", active: false },
   ];
 
   const galleryImages = [
@@ -23,39 +23,48 @@ const BiocratGalleryPage = () => {
     "https://lh3.googleusercontent.com/aida-public/AB6AXuCRtr8CdnvECRVx-u6jM-_E802_ngOBQiuh-7j-wMWNE4khHUfynLukAvx0OWqLIS7ROXW099Q7pNWHibUQptS0lwxX-GCN1h2ThLtPzyty53UXzHaGrAw0YhTsPZ6Yycxz4Wf8p2tzAF-jYT0iegp7kzRRS-X72Foshc6hpVR3Uw9ALJO3Mj1vsQsKgLZVOKmFOulwYZzYljd36Cepz-OPYu6SEITZU_MEwzNcKCB0tJwIsXY6yq0xYtUqFHoUH7sEdU3JTPpXK7gD",
     "https://lh3.googleusercontent.com/aida-public/AB6AXuA-1f8TtLYApSWI2XeXlyqm47qUFKLoVDPmWscmbblTqv7vY9OuN6Chv6fb3F55VFT6Iv9l7Ab4yEJGQ2SdN1oFAuioHn7hMIyqzOZYAdmiyQbITIbNu6oGjtjTo44-L94itkWAYwc9V7sBfkiVyw-2M8xf0u2UUFPJyv6MmXwE1TkrGyiylfXAeFwRjNcMuUWvtv9Tu69kowMwsJpLUGu6FmDVMO59puzB-OZ793yn3BDKW9JeciPNm7111nV2KtNM5kmbCvIXw8Oh",
     "https://lh3.googleusercontent.com/aida-public/AB6AXuCrgHKYr3se3JshBGGKwodwdrOu3qh_xxBpaEw_LIvBIlPlnaKj3p-URkflOoT0IuPlbIhlfS8EhpG3e1SM-T0GJ6wjwGUKSgLOy30F9Pp6qznrohF6IVJRzO6xelZ62cSGEklZx7oWufId2KzzJZZ-YD0pzrZkzmZSjSLwhzE52AwF2yK8zuWMBfiqgPjRzHqhqt0IldFCTPVi-sod0pWTgrCE2HIP6ZxpjokR_YhuT5eSPPDU4_k3357XKcQcF7O6mNau3j4TbY0M",
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDuNvQxr6yVb7LhtIt5kVjhEbJ8GhsVhTePP4ebWIPOCPpDBHgWK0_jrKG2bD2VZVN93HuBfxhRY96PGj7bcK8-uuoJMRQjZtx4MJM2XdHKTFDTVTzh5t4E29sw7PjdktWX33APCsSyWoSLdxsq6l7Nxy8lLR3MKGPjWx7zLsHrrnoTZgcCLlWfdcp3IfDHPKzxeV8CJa3Mzu2cwdZOcYj2hsoO85FUmPRr2qvhib6OaKUNSLNQqoUfk8vk_vzT8CUVyxme3BfCe9HI"
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuDuNvQxr6yVb7LhtIt5kVjhEbJ8GhsVhTePP4ebWIPOCPpDBHgWK0_jrKG2bD2VZVN93HuBfxhRY96PGj7bcK8-uuoJMRQjZtx4MJM2XdHKTFDTVTzh5t4E29sw7PjdktWX33APCsSyWoSLdxsq6l7Nxy8lLR3MKGPjWx7zLsHrrnoTZgcCLlWfdcp3IfDHPKzxeV8CJa3Mzu2cwdZOcYj2hsoO85FUmPRr2qvhib6OaKUNSLNQqoUfk8vk_vzT8CUVyxme3BfCe9HI",
   ];
 
-  const footerLinks = ["About", "Contact", "Privacy Policy", "Terms of Service"];
+  const footerLinks = [
+    "About",
+    "Contact",
+    "Privacy Policy",
+    "Terms of Service",
+  ];
 
   const socialIcons = [
     {
       name: "Instagram",
-      path: "M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"
+      path: "M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z",
     },
     {
       name: "Facebook",
-      path: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"
+      path: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z",
     },
     {
       name: "Twitter",
-      path: "M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"
-    }
+      path: "M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50" style={{ fontFamily: '"Public Sans", "Noto Sans", sans-serif' }}>
-      
-
+    <div
+      className="min-h-screen bg-slate-50"
+      style={{ fontFamily: '"Public Sans", "Noto Sans", sans-serif' }}
+    >
       {/* Main Content */}
       <main className="flex-1">
         <div className="px-4 md:px-10 lg:px-20 xl:px-40 py-12 md:py-16 lg:py-20">
           <div className="mx-auto max-w-7xl">
             <div className="text-center mb-12">
-              <h1 className="text-slate-900 text-4xl md:text-5xl font-bold leading-tight tracking-tighter">Gallery</h1>
+              <h1 className="text-slate-900 text-4xl md:text-5xl font-bold leading-tight tracking-tighter">
+                Gallery
+              </h1>
               <p className="text-slate-500 text-lg mt-4 max-w-3xl mx-auto">
-                Explore the vibrant moments captured at Biocrats Club IIT Indore. From workshops to competitions, our gallery showcases the essence of our activities and the
-                spirit of our community.
+                Explore the vibrant moments captured at Biocrats Club IIT
+                Indore. From workshops to competitions, our gallery showcases
+                the essence of our activities and the spirit of our community.
               </p>
             </div>
 
@@ -117,8 +126,18 @@ const BiocratGalleryPage = () => {
             </div>
             <div className="flex justify-center gap-4">
               {socialIcons.map((icon, index) => (
-                <a key={index} className="text-slate-400 hover:text-blue-600 transition-colors cursor-pointer" href="#">
-                  <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+                <a
+                  key={index}
+                  className="text-slate-400 hover:text-blue-600 transition-colors cursor-pointer"
+                  href="#"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="24"
+                    viewBox="0 0 256 256"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                     <path d={icon.path} />
                   </svg>
                 </a>
@@ -126,7 +145,9 @@ const BiocratGalleryPage = () => {
             </div>
           </div>
           <div className="mt-8 border-t border-slate-200 pt-8 text-center">
-            <p className="text-slate-500 text-sm">@2024 Biocrats Club IIT Indore. All rights reserved.</p>
+            <p className="text-slate-500 text-sm">
+              @2024 Biocrats Club IIT Indore. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>

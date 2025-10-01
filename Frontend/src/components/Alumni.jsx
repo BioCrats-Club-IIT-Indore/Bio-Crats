@@ -141,11 +141,11 @@
 // };
 
 // export default AlumniDirectory;
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const AlumniDirectory = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedFilter, setSelectedFilter] = useState('all');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedFilter, setSelectedFilter] = useState("all");
 
   const alumniData = [
     {
@@ -153,73 +153,89 @@ const AlumniDirectory = () => {
       name: "Dr. Anya Sharma",
       year: "2018",
       profession: "Research Scientist",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBbm0jxNqa-RjlqhgNFxDlV2kCT7-wTCema9YtZ35lM-MVo7da-OutSzauxr-L1thgwEf7j8ywXuMlbayEjpdfzHaW3q8YKE8sbwKkpOSGPXS0a3ewX5cigyNXrfbM5cso2Hf3qRwGVHoVMHLlW3Revs4b94OBlElQ7gXMLuvebXaa-b55MwYbKFTaYtGcflo3Ts1wGWqHIHXzKshizpJhqTy6W_PyBsuG94dronL2XAhKK0QsnN_P3yyBPLOAOeY078YzbiCWhpqZ1",
-      description: "Currently a Research Scientist at a leading biotechnology firm, Dr. Sharma has made significant contributions to cancer research.",
-      category: "research"
+      image:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBbm0jxNqa-RjlqhgNFxDlV2kCT7-wTCema9YtZ35lM-MVo7da-OutSzauxr-L1thgwEf7j8ywXuMlbayEjpdfzHaW3q8YKE8sbwKkpOSGPXS0a3ewX5cigyNXrfbM5cso2Hf3qRwGVHoVMHLlW3Revs4b94OBlElQ7gXMLuvebXaa-b55MwYbKFTaYtGcflo3Ts1wGWqHIHXzKshizpJhqTy6W_PyBsuG94dronL2XAhKK0QsnN_P3yyBPLOAOeY078YzbiCWhpqZ1",
+      description:
+        "Currently a Research Scientist at a leading biotechnology firm, Dr. Sharma has made significant contributions to cancer research.",
+      category: "research",
     },
     {
       id: 2,
       name: "Mr. Rohan Verma",
       year: "2015",
       profession: "CEO & Entrepreneur",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAuxPRLU4gzwAg9zvjs88ljjcRPZEXbWjmZ_kxlbWKw1OE3zN3B-9KNMBPOBfgVOnr1p0uwbXHleP0LHNWtlR5SuJub7bsZG7r8dGA-r3UhFmMacWxN3STu9zx7L2Unf8jvYnIIxr-77cCVO2mrXI5p6_vnwSmyd_HmPB-rxqvK4FFNeGquK6HFBNCQems5TsnUwMQKbLzRMCD4drSwu3IVr0gv5zouxsgfn8dw4m8lfqUdc3ldUvafcFppqiVq3WLySSmRKYLXN35A",
-      description: "Mr. Verma is the CEO of a successful pharmaceutical startup, focusing on innovative drug delivery systems.",
-      category: "industry"
+      image:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAuxPRLU4gzwAg9zvjs88ljjcRPZEXbWjmZ_kxlbWKw1OE3zN3B-9KNMBPOBfgVOnr1p0uwbXHleP0LHNWtlR5SuJub7bsZG7r8dGA-r3UhFmMacWxN3STu9zx7L2Unf8jvYnIIxr-77cCVO2mrXI5p6_vnwSmyd_HmPB-rxqvK4FFNeGquK6HFBNCQems5TsnUwMQKbLzRMCD4drSwu3IVr0gv5zouxsgfn8dw4m8lfqUdc3ldUvafcFppqiVq3WLySSmRKYLXN35A",
+      description:
+        "Mr. Verma is the CEO of a successful pharmaceutical startup, focusing on innovative drug delivery systems.",
+      category: "industry",
     },
     {
       id: 3,
       name: "Ms. Priya Kapoor",
       year: "2012",
       profession: "University Professor",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB1yfb4gQ7aY6TDF3ILidVA0oPzbOjwDwWL4uUcTnw1hm1LEN-ER3mL1Xd9PSH-1nk-S6uWORKV0jmGToEBTgCJBF172OIqUUa_F1cN58W-Jy6RwN342n2ispng6RBMHhChOHoXAzoT2x4M0bW0q6oZOVnZHmLJIeiVYOEgnP1MjtNUgr8TtIojpFv2l-mO_NVSSYmYyblIelPcH7DZK3Ve8GCJSyqzlMN-VsRiCd8guVfPyamk_LHUSVE_lO7ccVIwsNV5chASBGCQ",
-      description: "Ms. Kapoor is a renowned professor in molecular biology at a prestigious university, known for her work in genetic engineering.",
-      category: "academia"
+      image:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuB1yfb4gQ7aY6TDF3ILidVA0oPzbOjwDwWL4uUcTnw1hm1LEN-ER3mL1Xd9PSH-1nk-S6uWORKV0jmGToEBTgCJBF172OIqUUa_F1cN58W-Jy6RwN342n2ispng6RBMHhChOHoXAzoT2x4M0bW0q6oZOVnZHmLJIeiVYOEgnP1MjtNUgr8TtIojpFv2l-mO_NVSSYmYyblIelPcH7DZK3Ve8GCJSyqzlMN-VsRiCd8guVfPyamk_LHUSVE_lO7ccVIwsNV5chASBGCQ",
+      description:
+        "Ms. Kapoor is a renowned professor in molecular biology at a prestigious university, known for her work in genetic engineering.",
+      category: "academia",
     },
     {
       id: 4,
       name: "Mr. Vikram Singh",
       year: "2010",
       profession: "Healthcare Consultant",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAVcdfP3SLajfdu_fW1vfoJPWDU0gVOgC4_3xOQ93YL383XW9pBGkAs5V4581V0do5uwJJwLpz__rdVsiyHuqHCCq2cWhHdtd_FvViPTXufKy_dzMzOzEROOd0ybj9sFiqiwCLngTesQcUS7SFeFt2X3A-N9LOE5JnOdbBA92m3EuCdpUssr8pks6h1j8z4ylSTi_q61QR-3ydutXghrpfoJtfAw4CQlRVqdDVu94aOwy8PEKLGaZAiS9_De18ZwDqCNemEzsaTDrxK",
-      description: "Mr. Singh is a senior consultant in the healthcare industry, specializing in regulatory affairs and market access.",
-      category: "industry"
+      image:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAVcdfP3SLajfdu_fW1vfoJPWDU0gVOgC4_3xOQ93YL383XW9pBGkAs5V4581V0do5uwJJwLpz__rdVsiyHuqHCCq2cWhHdtd_FvViPTXufKy_dzMzOzEROOd0ybj9sFiqiwCLngTesQcUS7SFeFt2X3A-N9LOE5JnOdbBA92m3EuCdpUssr8pks6h1j8z4ylSTi_q61QR-3ydutXghrpfoJtfAw4CQlRVqdDVu94aOwy8PEKLGaZAiS9_De18ZwDqCNemEzsaTDrxK",
+      description:
+        "Mr. Singh is a senior consultant in the healthcare industry, specializing in regulatory affairs and market access.",
+      category: "industry",
     },
     {
       id: 5,
       name: "Dr. Neha Patel",
       year: "2008",
       profession: "Bioinformatics Expert",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDSPaKKv1U951E0SuqWvKuHb2Wub9GA9HwlyfUdAYqprSxdXhEWE-swlgybmfZAKWaSHwbw1aBDcGKZO-9AbLjpwUzFVDK7MuPClVbO5WyjIsjte-N0CZlTmhVrMQSrHdbiW8sdUA0gIVz-DOsT5zdcdzp7ulHw34z1dPj2TXTfem3Hii4PCsecGffUUFU0qgBaOiZgLBckPaody1RE2Pmew6MsYN8XbTYJRUaA2P0bRcoTyItk_lhsEbFv7OK941MAvA1mAUwmrGd3",
-      description: "Dr. Patel is a leading expert in bioinformatics, developing cutting-edge tools for genomic data analysis.",
-      category: "research"
-    }
+      image:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDSPaKKv1U951E0SuqWvKuHb2Wub9GA9HwlyfUdAYqprSxdXhEWE-swlgybmfZAKWaSHwbw1aBDcGKZO-9AbLjpwUzFVDK7MuPClVbO5WyjIsjte-N0CZlTmhVrMQSrHdbiW8sdUA0gIVz-DOsT5zdcdzp7ulHw34z1dPj2TXTfem3Hii4PCsecGffUUFU0qgBaOiZgLBckPaody1RE2Pmew6MsYN8XbTYJRUaA2P0bRcoTyItk_lhsEbFv7OK941MAvA1mAUwmrGd3",
+      description:
+        "Dr. Patel is a leading expert in bioinformatics, developing cutting-edge tools for genomic data analysis.",
+      category: "research",
+    },
   ];
 
   const filterCategories = [
-    { value: 'all', label: 'All Alumni' },
-    { value: 'research', label: 'Research' },
-    { value: 'academia', label: 'Academia' },
-    { value: 'industry', label: 'Industry' }
+    { value: "all", label: "All Alumni" },
+    { value: "research", label: "Research" },
+    { value: "academia", label: "Academia" },
+    { value: "industry", label: "Industry" },
   ];
 
-  const filteredAlumni = alumniData.filter(alumni => {
-    const matchesSearch = alumni.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         alumni.profession.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesFilter = selectedFilter === 'all' || alumni.category === selectedFilter;
+  const filteredAlumni = alumniData.filter((alumni) => {
+    const matchesSearch =
+      alumni.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      alumni.profession.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesFilter =
+      selectedFilter === "all" || alumni.category === selectedFilter;
     return matchesSearch && matchesFilter;
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50" style={{ fontFamily: '"Public Sans", "Noto Sans", sans-serif' }}>
+    <div
+      className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50"
+      style={{ fontFamily: '"Public Sans", "Noto Sans", sans-serif' }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-3 mb-6">
-          
-          </div>
-          <h1 className="text-slate-900 text-5xl font-bold leading-tight tracking-tighter mb-4">Alumni Directory</h1>
+          <div className="inline-flex items-center gap-3 mb-6"></div>
+          <h1 className="text-slate-900 text-5xl font-bold leading-tight tracking-tighter mb-4">
+            Alumni Directory
+          </h1>
           <p className="text-slate-600 text-lg font-normal max-w-2xl mx-auto">
-            Connect with our distinguished alumni network and explore their remarkable achievements in biotechnology.
+            Connect with our distinguished alumni network and explore their
+            remarkable achievements in biotechnology.
           </p>
         </div>
 
@@ -228,8 +244,18 @@ const AlumniDirectory = () => {
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto">
             <div className="relative">
-              <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              <svg
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
               </svg>
               <input
                 type="text"
@@ -243,14 +269,14 @@ const AlumniDirectory = () => {
 
           {/* Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-3">
-            {filterCategories.map(category => (
+            {filterCategories.map((category) => (
               <button
                 key={category.value}
                 onClick={() => setSelectedFilter(category.value)}
                 className={`px-6 py-2 rounded-full font-medium text-sm transition-all duration-200 ${
                   selectedFilter === category.value
-                    ? 'bg-blue-600 text-white shadow-md'
-                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+                    ? "bg-blue-600 text-white shadow-md"
+                    : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
                 }`}
               >
                 {category.label}
@@ -262,7 +288,11 @@ const AlumniDirectory = () => {
         {/* Results Count */}
         <div className="mb-6 text-center">
           <p className="text-slate-600 text-sm">
-            Showing <span className="font-semibold text-blue-600">{filteredAlumni.length}</span> {filteredAlumni.length === 1 ? 'alumnus' : 'alumni'}
+            Showing{" "}
+            <span className="font-semibold text-blue-600">
+              {filteredAlumni.length}
+            </span>{" "}
+            {filteredAlumni.length === 1 ? "alumnus" : "alumni"}
           </p>
         </div>
 
@@ -284,13 +314,18 @@ const AlumniDirectory = () => {
                       <h3 className="text-slate-900 text-xl font-bold leading-tight group-hover:text-blue-600 transition-colors">
                         {alumni.name}
                       </h3>
-                      <p className="text-slate-500 text-sm font-medium mt-1">Class of {alumni.year}</p>
+                      <p className="text-slate-500 text-sm font-medium mt-1">
+                        Class of {alumni.year}
+                      </p>
                     </div>
                     <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full">
-                      {alumni.category.charAt(0).toUpperCase() + alumni.category.slice(1)}
+                      {alumni.category.charAt(0).toUpperCase() +
+                        alumni.category.slice(1)}
                     </span>
                   </div>
-                  <p className="text-blue-600 text-sm font-semibold mb-3">{alumni.profession}</p>
+                  <p className="text-blue-600 text-sm font-semibold mb-3">
+                    {alumni.profession}
+                  </p>
                   <p className="text-slate-600 text-sm leading-relaxed">
                     {alumni.description}
                   </p>
@@ -311,11 +346,25 @@ const AlumniDirectory = () => {
         {/* No Results Message */}
         {filteredAlumni.length === 0 && (
           <div className="text-center py-12">
-            <svg className="w-16 h-16 text-slate-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+            <svg
+              className="w-16 h-16 text-slate-300 mx-auto mb-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+              />
             </svg>
-            <h3 className="text-slate-900 text-xl font-semibold mb-2">No alumni found</h3>
-            <p className="text-slate-500 text-sm">Try adjusting your search or filter criteria</p>
+            <h3 className="text-slate-900 text-xl font-semibold mb-2">
+              No alumni found
+            </h3>
+            <p className="text-slate-500 text-sm">
+              Try adjusting your search or filter criteria
+            </p>
           </div>
         )}
 
@@ -323,15 +372,21 @@ const AlumniDirectory = () => {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white rounded-xl p-6 text-center border border-slate-200 shadow-sm">
             <div className="text-4xl font-bold text-blue-600 mb-2">500+</div>
-            <div className="text-slate-600 text-sm font-medium">Total Alumni</div>
+            <div className="text-slate-600 text-sm font-medium">
+              Total Alumni
+            </div>
           </div>
           <div className="bg-white rounded-xl p-6 text-center border border-slate-200 shadow-sm">
             <div className="text-4xl font-bold text-blue-600 mb-2">50+</div>
-            <div className="text-slate-600 text-sm font-medium">Countries Worldwide</div>
+            <div className="text-slate-600 text-sm font-medium">
+              Countries Worldwide
+            </div>
           </div>
           <div className="bg-white rounded-xl p-6 text-center border border-slate-200 shadow-sm">
             <div className="text-4xl font-bold text-blue-600 mb-2">15+</div>
-            <div className="text-slate-600 text-sm font-medium">Years of Legacy</div>
+            <div className="text-slate-600 text-sm font-medium">
+              Years of Legacy
+            </div>
           </div>
         </div>
       </div>
