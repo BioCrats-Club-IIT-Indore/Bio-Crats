@@ -40,7 +40,7 @@ export default function ContactUs() {
       {/* Club Head Section */}
       <div className="mt-10 w-full max-w-2xl bg-white rounded-2xl shadow-md p-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Club Head Contact</h2>
-        <p><strong>Name:</strong> [Club Head’s Full Name]</p>
+        <p><strong>Name:</strong> Anjali </p>
         <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
         <p><strong>Email:</strong> clubhead.biocrats@iiti.ac.in</p>
       </div>
