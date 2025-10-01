@@ -165,9 +165,9 @@ export default function BiocratsClub() {
   return (
     <div className="relative flex flex-col min-h-screen overflow-x-hidden bg-slate-50">
       {/* Hero Section */}
-      <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+      {/* <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900"> */}
         {/* Background Image with Overlay */}
-        <div
+        {/* <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
             backgroundImage:
@@ -176,7 +176,7 @@ export default function BiocratsClub() {
         />
 
         {/* Animated Background Elements */}
-        <div className="absolute inset-0 opacity-20">
+        {/* <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-700"></div>
         </div>
@@ -219,9 +219,43 @@ export default function BiocratsClub() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
             <div className="w-1 h-3 bg-white rounded-full"></div>
+          </div>
+        </div> */}
+      {/* </section> */}
+ {/* Hero Section */}
+       <section
+        className="relative flex min-h-[60vh] items-center justify-center bg-cover bg-center py-20 text-white"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEeyN8orr60Ahxe60O6CuNSmcyrCRCyZ6a136yoc9-wDCTecW1UixLlvbed6DnwekGsD-KvrQ8P0Hzy8NUkweNE-vaRPW_1O8pWnkvS3E0zbFo4hiAZc_HaTNU6cIoek0k9-LfHMGnXafqWHt7J16Ge8n-mjiUgEmK-1cftmg_zYMaY9vnzsshpPmAD8xK71axNULcIvRKN3HmeflQ5rsLYQm2pnDrtlGLUvFUZ4xylQ0VYiaP8aV7_h8A9RGZW38nRcxR-VglMy57")',
+        }}
+      >
+        <div className="container mx-auto max-w-4xl px-4 text-center">
+          <h1 className="text-4xl font-extrabold leading-tight md:text-6xl">
+            Innovating the Future of Biotechnology
+          </h1>
+          <p className="mt-4 text-lg text-slate-200 md:text-xl">
+            The Biocrats Club at IIT Indore is dedicated to fostering innovation
+            and collaboration in the field of biotechnology. Join us to explore
+            the latest advancements and contribute to groundbreaking research.
+          </p>
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#achievements"
+              className="group inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-8 py-4 text-lg font-bold text-white shadow-lg transition-all duration-300 hover:bg-blue-700 hover:shadow-xl hover:-translate-y-1"
+            >
+              Explore Our Work
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="#events"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-white/10 backdrop-blur-sm border-2 border-white/30 px-8 py-4 text-lg font-bold text-white shadow-lg transition-all duration-300 hover:bg-white/20 hover:shadow-xl"
+            >
+              Upcoming Events
+            </a>
           </div>
         </div>
       </section>

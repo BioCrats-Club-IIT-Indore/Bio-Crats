@@ -22,6 +22,7 @@ const Navbar = () => {
     { name: "Gallery", href: "#gallery" },
     { name: "Events", href: "#events" },
     { name: "Contact Us", href: "#contact" },
+    // { name: "Not Found", href: "#notfound" },
   ];
 
   const handleNavClick = (item) => {
