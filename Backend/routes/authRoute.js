@@ -15,7 +15,7 @@ router.post('/signup', validateSignup, authController.signup);
 router.post('/login', validateLogin, authController.login);
 
 // @route   GET /api/auth/profile
-// @desc    Get current user profile
+// @desc    Get current user profile    
 // @access  Private
 router.get('/profile', authenticateToken, checkUserActive, authController.getProfile);
 
