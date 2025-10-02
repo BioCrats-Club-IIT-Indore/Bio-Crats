@@ -14,7 +14,7 @@ import NotFound from "./components/Notfound";
 import Footer from "./components/Footer";
 import LoginPage from "./components/Login";
 import Signup from "./components/Signup";
-
+import Profile from "./components/Profile";
 function MainPage() {
   // ✅ smooth scroll code yahin rakho
   useEffect(() => {
@@ -62,11 +62,15 @@ function MainPage() {
         <section id="gallery">
           <Gallery />
         </section>
+        <section id="blog">
+          <Profile />
+        </section>
         <section id="contact">
           <ContactUs />
         </section>
       </main>
       <Footer />
+
     </>
   );
 }

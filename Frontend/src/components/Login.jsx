@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Lock, Mail, Eye, EyeOff, Loader2, CheckCircle, X, User, Settings, Bell } from 'lucide-react';
 
@@ -10,6 +9,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showErrorPopup, setShowErrorPopup] = useState(false);
   const [userEmail, setUserEmail] = useState('');
 
   const getUserInitial = (email) => {
@@ -33,14 +33,16 @@ export default function App() {
       const data = await response.json();
 
       if (response.ok) {
+        localStorage.setItem("token", data.token); 
         setUserEmail(email);
         setShowSuccessPopup(true);
 
         setTimeout(() => {
           setShowSuccessPopup(false);
-          setCurrentPage('home');
+          setCurrentPage('/');
         }, 2000);
       } else {
+        setShowErrorPopup(true);
         setError(data.message || 'Login failed. Please try again.');
       }
     } catch (err) {
@@ -49,7 +51,7 @@ export default function App() {
 
       setTimeout(() => {
         setShowSuccessPopup(false);
-        setCurrentPage('home');
+        setCurrentPage('/');
       }, 2000);
     } finally {
       setIsLoading(false);
@@ -63,14 +65,95 @@ export default function App() {
     setCurrentPage('login');
   };
 
+  const closePopupAndRedirect = () => {
+    setShowSuccessPopup(false);
+    setShowErrorPopup(false);
+    setCurrentPage('/');
+  };
+
+  // if (currentPage === '/') {
+  //   return (
+  //     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+  //       <nav className="bg-white shadow-md">
+  //         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  //           <div className="flex justify-between items-center h-16">
+  //             <div className="flex items-center space-x-2">
+  //               <Lock className="w-6 h-6 text-blue-600" />
+  //               <span className="text-xl font-bold text-gray-800">Dashboard</span>
+  //             </div>
+  //             <div className="flex items-center space-x-4">
+  //               <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+  //                 <Bell className="w-5 h-5 text-gray-600" />
+  //               </button>
+  //               <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+  //                 <Settings className="w-5 h-5 text-gray-600" />
+  //               </button>
+  //               <div className="flex items-center space-x-3">
+  //                 <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold">
+  //                   {getUserInitial(userEmail)}
+  //                 </div>
+  //                 <button
+  //                   onClick={handleLogout}
+  //                   className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors font-medium"
+  //                 >
+  //                   Logout
+  //                 </button>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </nav>
+
+  //       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  //         <div className="text-center mb-12">
+  //           <h1 className="text-4xl font-bold text-gray-800 mb-4">Welcome to Your Dashboard</h1>
+  //           <p className="text-xl text-gray-600">Hello, {userEmail || 'User'}!</p>
+  //         </div>
+
+  //         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+  //           <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+  //             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+  //               <User className="w-6 h-6 text-blue-600" />
+  //             </div>
+  //             <h3 className="text-xl font-semibold text-gray-800 mb-2">Profile</h3>
+  //             <p className="text-gray-600">Manage your account settings and preferences</p>
+  //           </div>
+
+  //           <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+  //             <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+  //               <Settings className="w-6 h-6 text-green-600" />
+  //             </div>
+  //             <h3 className="text-xl font-semibold text-gray-800 mb-2">Settings</h3>
+  //             <p className="text-gray-600">Configure your application preferences</p>
+  //           </div>
+
+  //           <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+  //             <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+  //               <Bell className="w-6 h-6 text-purple-600" />
+  //             </div>
+  //             <h3 className="text-xl font-semibold text-gray-800 mb-2">Notifications</h3>
+  //             <p className="text-gray-600">View and manage your notifications</p>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4">
+
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
       {showSuccessPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-30 backdrop-blur-sm">
-          <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4 transform animate-scale-in">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4 transform animate-scale-in relative">
+            <button
+              onClick={closePopupAndRedirect}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
             <div className="flex flex-col items-center space-y-4">
               <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg animate-bounce-slow">
                 <CheckCircle className="w-12 h-12 text-white" />
@@ -79,6 +162,13 @@ export default function App() {
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">Login Successful!</h3>
                 <p className="text-gray-600">Welcome back, {email.split('@')[0]}</p>
               </div>
+                <a
+                onClick={closePopupAndRedirect}
+                href="/"
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Go to Homepage
+              </a>
               <div className="w-full bg-green-100 rounded-full h-1 overflow-hidden">
                 <div className="h-full bg-gradient-to-r from-green-400 to-green-600 animate-progress"></div>
               </div>
@@ -87,8 +177,47 @@ export default function App() {
         </div>
       )}
 
+      {showErrorPopup && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-30 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4 transform animate-scale-in relative">
+            <button
+              onClick={closePopupAndRedirect}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <div className="flex flex-col items-center space-y-4">
+              <div className="w-20 h-20 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center shadow-lg">
+                <X className="w-12 h-12 text-white" />
+              </div>
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Login Failed</h3>
+                <p className="text-gray-600">{error || 'Invalid email or password'}</p>
+              </div>
+              <a
+                onClick={closePopupAndRedirect}
+                href="/"
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Go to Homepage
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="w-full max-w-md relative">
         <div className="bg-white rounded-2xl shadow-2xl p-8 space-y-6 backdrop-blur-sm bg-opacity-95 border border-gray-100">
+            <button
+              onClick={() => {
+                console.log('Manual redirect to home');
+                window.location.href = '/';
+              }}
+              className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors group"
+              title="Go to Home"
+            >
+              <X className="w-5 h-5 text-gray-600 group-hover:text-gray-800" />
+            </button>
           <div className="text-center space-y-2">
             <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl mx-auto flex items-center justify-center shadow-lg">
               <Lock className="w-8 h-8 text-white" />
@@ -195,13 +324,19 @@ export default function App() {
               </svg>
               <span className="text-gray-700 font-medium">Google</span>
             </button>
+            <button type="button" className="flex items-center justify-center space-x-2 px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+              <svg className="w-5 h-5" fill="#1877F2" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+              <span className="text-gray-700 font-medium">Facebook</span>
+            </button>
           </div>
 
           <p className="text-center text-sm text-gray-600">
             Don't have an account?{' '}
-            <button type="button" className="text-blue-600 hover:text-blue-700 font-medium transition-colors">
+            <a href="/signup" className="text-blue-600 hover:text-blue-700 font-medium transition-colors">
               Sign up
-            </button>
+            </a>
           </p>
         </div>
 

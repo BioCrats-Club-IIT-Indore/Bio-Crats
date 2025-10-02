@@ -207,6 +207,7 @@ const Navbar = () => {
     { name: "Alumni", href: "#alumni" },
     { name: "Gallery", href: "#gallery" },
     { name: "Events", href: "#events" },
+    { name: "Blog", href: "#blog" },
     { name: "Contact Us", href: "#contact" },
   ];
 
