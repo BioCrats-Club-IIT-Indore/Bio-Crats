@@ -12,6 +12,8 @@ import BiocratTeamPage from "./components/Team";
 import ContactUs from "./components/Contact";
 import NotFound from "./components/Notfound";
 import Footer from "./components/Footer";
+import LoginPage from "./components/Login";
+import Signup from "./components/Signup";
 
 function MainPage() {
   // ✅ smooth scroll code yahin rakho
@@ -73,10 +75,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* ✅ Main scrollable page */}
         <Route path="/" element={<MainPage />} />
-
-        {/* ✅ Agar koi bhi galat path ho */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
