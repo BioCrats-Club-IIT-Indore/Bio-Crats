@@ -10,7 +10,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("Home");
   const navigate = useNavigate();
   const location = useLocation();
-const API_URL = 'http://localhost:5000/api';
+  const API_URL = "http://localhost:5000/api";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -195,7 +195,7 @@ const API_URL = 'http://localhost:5000/api';
               </a>
             ))}
           </nav>
- {/* Right side */}
+          {/* Right side */}
           <div className="hidden lg:flex items-center gap-3">
             {!isAuthenticated ? (
               <>
