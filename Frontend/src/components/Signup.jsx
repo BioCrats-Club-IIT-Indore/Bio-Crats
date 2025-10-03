@@ -1,6 +1,17 @@
-
 import { useState } from "react";
-import { Eye, EyeOff, Mail, Lock, User, Briefcase, GraduationCap, Calendar, CheckCircle, AlertCircle, X } from "lucide-react";
+import {
+  Eye,
+  EyeOff,
+  Mail,
+  Lock,
+  User,
+  Briefcase,
+  GraduationCap,
+  Calendar,
+  CheckCircle,
+  AlertCircle,
+  X,
+} from "lucide-react";
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
@@ -102,7 +113,12 @@ export default function SignupPage() {
       });
 
       const data = await res.json();
+      const { token, user } = res.data;
 
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
+
+      setAuthUser(user);
       if (res.ok) {
         setAuthToken(data.token);
         const newUserData = {
@@ -136,17 +152,6 @@ export default function SignupPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
-      <button
-        onClick={() => {
-          console.log("Manual redirect to home");
-          window.location.href = "/";
-        }}
-        className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors group"
-        title="Go to Home"
-      >
-        <X className="w-5 h-5 text-gray-400 group-hover:text-gray-600" />
-      </button>
-
       {/* Success Popup */}
       {showSuccessPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
@@ -246,6 +251,16 @@ export default function SignupPage() {
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mb-2">
               <GraduationCap className="w-8 h-8 text-white" />
             </div>
+            <button
+              onClick={() => {
+                console.log("Manual redirect to home");
+                window.location.href = "/";
+              }}
+              className="absolute top-4 right-4 p-2 hover:bg-gray-300 rounded-full transition-colors group"
+              title="Go to Home"
+            >
+              <X className="w-5 h-5 text-gray-600 group-hover:text-gray-800" />
+            </button>
             <h1 className="text-3xl font-bold text-gray-900">Create Account</h1>
             <p className="text-gray-600">Join us and start your journey</p>
           </div>
