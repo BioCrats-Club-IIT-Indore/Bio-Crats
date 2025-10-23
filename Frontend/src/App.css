@@ -1,0 +1,16 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+#root {
+  margin: 0 auto;
+  padding: 0;
+  text-align: top;
+  background-image: "./assets/biobg.jpg";
+}
+
+.read-the-docs {
+  color: #000000;
+}
