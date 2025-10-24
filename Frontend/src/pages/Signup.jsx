@@ -33,6 +33,7 @@ export default function SignupPage() {
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [showErrorPopup, setShowErrorPopup] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [userEmail, setUserEmail] = useState("");
 
   const programs = ["B.Tech", "M.Tech", "PhD", "MS"];
   const currentYear = new Date().getFullYear();
@@ -119,19 +120,26 @@ export default function SignupPage() {
       const data = await res.json();
 
       if (res.ok) {
+        localStorage.setItem("token", data.token);
         setShowSuccessPopup(true);
+        setUserEmail(formData.email);
+
         setTimeout(() => {
           window.location.href = "/";
         }, 2000);
       } else {
         setErrorMessage(data.message || "Signup failed. Please try again.");
         setShowErrorPopup(true);
+        setUserEmail(formData.email);
+
       }
     } catch (error) {
       console.error("Signup error:", error);
       setErrorMessage(
         "Network error. Please check if the server is running on localhost:5000"
       );
+        setUserEmail(formData.email);
+
       setShowErrorPopup(true);
     } finally {
       setIsLoading(false);
@@ -262,7 +270,7 @@ export default function SignupPage() {
                   className={`w-full pl-10 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition ${
                     errors.name ? "border-red-500 bg-red-50" : "border-gray-300"
                   }`}
-                  placeholder="John Doe"
+                  placeholder="Username"
                 />
               </div>
               {errors.name && (
@@ -314,7 +322,7 @@ export default function SignupPage() {
                   className={`w-full pl-10 pr-12 py-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition ${
                     errors.password ? "border-red-500 bg-red-50" : "border-gray-300"
                   }`}
-                  placeholder="••••••••"
+                  placeholder="Enter password"
                 />
                 <button
                   type="button"
@@ -353,7 +361,7 @@ export default function SignupPage() {
                       ? "border-red-500 bg-red-50"
                       : "border-gray-300"
                   }`}
-                  placeholder="••••••••"
+                  placeholder="Confirm password"
                 />
                 <button
                   type="button"
